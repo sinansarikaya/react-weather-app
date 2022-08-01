@@ -23,16 +23,14 @@ export const WeatherProvider = ({ children }) => {
     weathers,
     setWeathers,
   };
-  console.log(cityData);
+
   const apiKey = "19fb000f0d23db04240d7d2a975c79f2";
   const units = "metric";
   const link = "http://sinansarikaya.com/data/cities_of_turkey.json";
   //const link = "../data/cities_of_turkey.json";
 
   function getCities() {
-    fetch(link)
-      .then((response) => response.json())
-      .then((data) => setCities(data));
+    setCities(cityData);
   }
   const citylat = selected?.initialvalues?.[0].latitude
     ? selected?.initialvalues?.[0].latitude
