@@ -38,55 +38,87 @@ function Weather() {
 
   return (
     <div>
-      <select onChange={handleChange}>
-        {cities.map((city) => (
-          <option
-            key={city.id}
-            value={[
-              city.id,
-              city.name,
-              city.latitude,
-              city.longitude,
-              city.population,
-              city.region,
-            ]}
+      <aside>
+        <div className="aside-conteiner">
+          <select onChange={handleChange}>
+            {cities.map((city) => (
+              <option
+                key={city.id}
+                value={[
+                  city.id,
+                  city.name,
+                  city.latitude,
+                  city.longitude,
+                  city.population,
+                  city.region,
+                ]}
+              >
+                {city.name}
+              </option>
+            ))}
+          </select>
+          <h1>{selected.name}</h1>
+          {weathers?.current?.weather?.[0].icon && (
+            <img
+              src={`http://openweathermap.org/img/wn/${weathers?.current?.weather?.[0].icon}@2x.png`}
+            />
+          )}
+          <br />
+          Temp: {weathers?.current?.temp}
+          <br />
+          Feels Like: {weathers?.current?.feels_like}
+          <br />
+          Humidity: {weathers?.current?.humidity}
+          <br />
+          Main: {weathers?.current?.weather?.[0].main}
+          <br />
+          Description: {weathers?.current?.weather?.[0].description}
+          <br />
+          Wind speed: {weathers?.current?.wind_speed}
+          <br />
+          Date: {day.toDateString().slice(3)}
+          <br />
+          Day: {createDate(dt)}
+          <br />
+        </div>
+
+        <div className="aside-footer">
+          <span
+            className="mode"
+            onClick={() => setTheme(theme === "Dark" ? "Light" : "Dark")}
           >
-            {city.name}
-          </option>
+            {theme === "Dark" ? (
+              <ion-icon name="sunny" size="large"></ion-icon>
+            ) : (
+              <ion-icon name="moon" size="large"></ion-icon>
+            )}
+          </span>
+
+          <a
+            href="https://github.com/sinansarikaya/react-weather-app"
+            target="_blank"
+            className={`logo-github ${theme}`}
+          >
+            <ion-icon name="logo-github" size="large"></ion-icon>
+          </a>
+        </div>
+      </aside>
+      <section>
+        {weathers?.daily?.map((dayily, i) => (
+          <div key={i} className="grid-items">
+            <img
+              src={`http://openweathermap.org/img/wn/${dayily?.weather?.[0].icon}@2x.png`}
+            />
+            <br />
+            {parseInt(dayily.temp.day)}&#176;
+            <div>{dayily?.weather?.[0]?.description}</div>
+            <div>{parseInt(dayily?.temp?.day)}&#176;</div>
+            <div className="night_degree">
+              {parseInt(dayily?.temp?.night)}&#176;
+            </div>
+          </div>
         ))}
-      </select>
-      <br />
-      <hr />
-      City: {selected.name}
-      <br />
-      Temp: {weathers?.current?.temp}
-      <br />
-      Feels Like: {weathers?.current?.feels_like}
-      <br />
-      Humidity: {weathers?.current?.humidity}
-      <br />
-      Main: {weathers?.current?.weather?.[0].main}
-      <br />
-      Description: {weathers?.current?.weather?.[0].description}
-      <br />
-      Wind speed: {weathers?.current?.wind_speed}
-      <br />
-      Date: {day.toDateString().slice(3)}
-      <br />
-      Day: {createDate(dt)}
-      <br />
-      {weathers?.current?.weather?.[0].icon && (
-        <img
-          src={`http://openweathermap.org/img/wn/${weathers?.current?.weather?.[0].icon}@2x.png`}
-        />
-      )}
-      {weathers?.daily?.map((dayily, i) => (
-        <div key={i}> {dayily.temp.day}</div>
-      ))}
-      <br />
-      <button onClick={() => setTheme(theme === "Dark" ? "Light" : "Dark")}>
-        Change Theme
-      </button>
+      </section>
     </div>
   );
 }
