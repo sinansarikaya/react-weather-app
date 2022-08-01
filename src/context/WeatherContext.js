@@ -12,6 +12,7 @@ export const WeatherProvider = ({ children }) => {
     longitude: "35.3213",
     population: 2183167,
     region: "Akdeniz",
+    icon: "",
   });
   const [weathers, setWeathers] = useState({});
 
@@ -26,8 +27,8 @@ export const WeatherProvider = ({ children }) => {
 
   const apiKey = "19fb000f0d23db04240d7d2a975c79f2";
   const units = "metric";
-  const link = "http://sinansarikaya.com/data/cities_of_turkey.json";
-  //const link = "../data/cities_of_turkey.json";
+
+  //console.log(weathers?.current?.weather?.[0].icon);
 
   function getCities() {
     setCities(cityData);
