@@ -4,8 +4,8 @@ import { useTheme } from "../context/ThemeContext";
 function Container() {
   const { theme } = useTheme();
   return (
-    <div>
-      <div className="container">
+    <main className={`${theme}`}>
+      <div className={`container ${theme}`}>
         <Weather />
       </div>
       <footer>
@@ -14,7 +14,7 @@ function Container() {
           <b>Sinan Sarikaya</b>
         </div>
       </footer>
-    </div>
+    </main>
   );
 }
 
