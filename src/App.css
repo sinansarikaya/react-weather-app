@@ -33,7 +33,7 @@ main.Light {
 }
 .container {
   width: 85%;
-  height: 80vh;
+  height: 90vh;
   background-color: #26212c;
   border-radius: 15px;
   border: 1px solid #3f3749;
@@ -49,7 +49,7 @@ main.Light {
 }
 aside {
   width: 30%;
-  height: 72vh;
+  height: 82vh;
   background-color: #29242f;
   border: 2px solid #3f3749;
   float: left;
