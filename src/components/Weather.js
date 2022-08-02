@@ -2,8 +2,16 @@ import { useWeather } from "../context/WeatherContext";
 import { useTheme } from "../context/ThemeContext";
 
 function Weather() {
-  const { cities, setCities, selected, setSelected, weathers, setWeathers } =
-    useWeather();
+  const {
+    cities,
+    setCities,
+    selected,
+    setSelected,
+    weathers,
+    setWeathers,
+    unit,
+    setUnit,
+  } = useWeather();
 
   const { theme, setTheme } = useTheme();
 
@@ -17,6 +25,9 @@ function Weather() {
       population: newValue[4],
       region: newValue[5],
     });
+  };
+  const handleSwitch = () => {
+    setUnit(unit == "metric" ? "imperial" : "metric");
   };
   const dt = weathers?.current?.dt;
   const day = new Date(dt * 1000);
@@ -63,23 +74,46 @@ function Weather() {
               src={`http://openweathermap.org/img/wn/${weathers?.current?.weather?.[0].icon}@2x.png`}
             />
           )}
-          <br />
-          Temp: {weathers?.current?.temp}
-          <br />
-          Feels Like: {weathers?.current?.feels_like}
-          <br />
-          Humidity: {weathers?.current?.humidity}
-          <br />
-          Main: {weathers?.current?.weather?.[0].main}
-          <br />
-          Description: {weathers?.current?.weather?.[0].description}
-          <br />
-          Wind speed: {weathers?.current?.wind_speed}
-          <br />
-          Date: {day.toDateString().slice(3)}
-          <br />
-          Day: {createDate(dt)}
-          <br />
+          <div className="aside-info">
+            <div className="info-item">
+              {weathers?.current?.weather?.[0].description}
+            </div>
+            <div className="info-item info-date">
+              <div> {day.toDateString().slice(3)}</div>
+              <div> {createDate(dt)}</div>
+            </div>
+            <div className="info-item currentTemp">
+              {parseInt(weathers?.current?.temp)}&#176;
+            </div>
+
+            <div className="info-item info-footer">
+              <div className="info-item items">
+                <div className="sub-items">
+                  Feels Like
+                  <span className="material-symbols-rounded">
+                    device_thermostat
+                  </span>
+                </div>
+                <div>{parseInt(weathers?.current?.feels_like)}&#176;</div>
+              </div>
+
+              <div className="info-item humidity items">
+                <div className="sub-items">
+                  Humidity
+                  <ion-icon name="water" size="large"></ion-icon>
+                </div>
+                <div>{weathers?.current?.humidity}</div>
+              </div>
+
+              <div className="info-item humidity items">
+                <div className="sub-items">
+                  Wind
+                  <span className="material-symbols-rounded">air</span>
+                </div>
+                <div>{weathers?.current?.wind_speed}</div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="aside-footer">
@@ -93,6 +127,17 @@ function Weather() {
               <ion-icon name="moon" size="large"></ion-icon>
             )}
           </span>
+
+          <div className="unity">
+            <div>C</div>
+            <div>
+              <label className="switch">
+                <input type="checkbox" onChange={handleSwitch} />
+                <span className="slider round"></span>
+              </label>
+            </div>
+            <div>F</div>
+          </div>
 
           <a
             href="https://github.com/sinansarikaya/react-weather-app"

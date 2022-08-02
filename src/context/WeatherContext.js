@@ -15,6 +15,7 @@ export const WeatherProvider = ({ children }) => {
     icon: "",
   });
   const [weathers, setWeathers] = useState({});
+  const [unit, setUnit] = useState("metric");
 
   const values = {
     cities,
@@ -23,16 +24,18 @@ export const WeatherProvider = ({ children }) => {
     setSelected,
     weathers,
     setWeathers,
+    unit,
+    setUnit,
   };
 
   const apiKey = "19fb000f0d23db04240d7d2a975c79f2";
-  const units = "metric";
 
   //console.log(weathers?.current?.weather?.[0].icon);
 
   function getCities() {
     setCities(cityData);
   }
+
   const citylat = selected?.initialvalues?.[0].latitude
     ? selected?.initialvalues?.[0].latitude
     : selected.latitude;
@@ -43,17 +46,17 @@ export const WeatherProvider = ({ children }) => {
 
   useEffect(() => {
     fetch(
-      `https://api.openweathermap.org/data/2.5/onecall?lat=${citylat}&lon=${citylon}&exclude=minutely,hourly&units=metric&appid=${apiKey}`
+      `https://api.openweathermap.org/data/2.5/onecall?lat=${citylat}&lon=${citylon}&exclude=minutely,hourly&units=${unit}&appid=${apiKey}`
     )
       .then((response) => response.json())
       .then((data) => setWeathers(data));
     return;
-  }, [selected]);
+  }, [selected, unit]);
 
   useEffect(() => {
     getCities();
     return;
-  }, []);
+  }, [unit]);
 
   return (
     <WeatherContext.Provider value={values}>{children}</WeatherContext.Provider>

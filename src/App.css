@@ -4,6 +4,15 @@
   margin: 0;
   box-sizing: border-box;
 }
+:root {
+  --dark: #435058;
+  --yellow: #f6bd60;
+  --white: #eaf4f4;
+  --red: #ef6461;
+  --pink: #fa8072;
+  --green: #1ea896;
+  --blue: #094d92;
+}
 body {
   font-size: 19px;
   font-family: "Poppins", sans-serif;
@@ -43,14 +52,14 @@ aside {
   background-color: #29242f;
   border: 2px solid #3f3749;
   float: left;
-  padding: 3%;
+  padding: 3% 3% 0 3%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 aside .aside-conteiner {
   width: 100%;
-  height: 95%;
+  height: 90%;
   text-align: center;
 }
 aside select {
@@ -70,15 +79,66 @@ aside select {
 }
 aside .aside-conteiner h1 {
   margin-top: 15px;
-  color: #ef6461;
+  color: var(--yellow);
 }
+.aside-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.aside-info .info-item.info-date {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 1.5rem;
+}
+aside .aside-conteiner .currentTemp {
+  color: var(--yellow);
+  font-size: 2.5rem;
+}
+.aside-info .info-item.info-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 1.2rem;
+}
+.aside-info .info-item.info-footer .info-item.items {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  border-bottom: 2px solid #3f3749;
+}
+.aside-info .info-item.info-footer .info-item.humidity {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 5px;
+}
+.info-item .sub-items {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  align-items: center;
+}
+
 aside .aside-footer {
   width: 100%;
-  height: 5%;
+  height: 10%;
   border-top: 2px solid #3f3749;
   display: flex;
   justify-content: space-between;
-  padding-top: 20px;
+  align-items: center;
+}
+aside .aside-footer ion-icon {
+  cursor: pointer;
+}
+aside .aside-footer .unity {
+  display: flex;
+  flex-direction: row;
+  gap: 7px;
+  align-items: center;
 }
 aside .aside-footer a {
   color: #cbc5d3;
@@ -103,4 +163,64 @@ section .grid-items {
 footer {
   text-align: center;
   color: #cbc5d3;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }
