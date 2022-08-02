@@ -68,7 +68,7 @@ function Weather() {
               </option>
             ))}
           </select>
-          <h1>{selected.name}</h1>
+          <h1 className="city-title">{selected.name}</h1>
           {weathers?.current?.weather?.[0].icon && (
             <img
               src={`http://openweathermap.org/img/wn/${weathers?.current?.weather?.[0].icon}@2x.png`}
@@ -83,7 +83,7 @@ function Weather() {
               <div> {createDate(dt)}</div>
             </div>
             <div className="info-item currentTemp">
-              {parseInt(weathers?.current?.temp)}&#176;
+              {Math.round(weathers?.current?.temp)}&#176;
             </div>
 
             <div className="info-item info-footer">
@@ -94,13 +94,29 @@ function Weather() {
                     device_thermostat
                   </span>
                 </div>
-                <div>{parseInt(weathers?.current?.feels_like)}&#176;</div>
+                <div>{Math.round(weathers?.current?.feels_like)}&#176;</div>
+              </div>
+
+              <div className="info-item humidity items">
+                <div className="sub-items">
+                  Day
+                  <span className="material-symbols-rounded">light_mode</span>
+                </div>
+                <div>{Math.round(weathers?.daily?.[0]?.temp?.day)}&#176;</div>
+              </div>
+
+              <div className="info-item humidity items">
+                <div className="sub-items">
+                  Night
+                  <span className="material-symbols-rounded">bedtime</span>
+                </div>
+                <div>{Math.round(weathers?.daily?.[0]?.temp?.night)}&#176;</div>
               </div>
 
               <div className="info-item humidity items">
                 <div className="sub-items">
                   Humidity
-                  <ion-icon name="water" size="large"></ion-icon>
+                  <ion-icon name="water"></ion-icon>
                 </div>
                 <div>{weathers?.current?.humidity}</div>
               </div>
@@ -122,9 +138,9 @@ function Weather() {
             onClick={() => setTheme(theme === "Dark" ? "Light" : "Dark")}
           >
             {theme === "Dark" ? (
-              <ion-icon name="sunny" size="large"></ion-icon>
+              <ion-icon name="sunny"></ion-icon>
             ) : (
-              <ion-icon name="moon" size="large"></ion-icon>
+              <ion-icon name="moon"></ion-icon>
             )}
           </span>
 
@@ -144,7 +160,7 @@ function Weather() {
             target="_blank"
             className={`logo-github ${theme}`}
           >
-            <ion-icon name="logo-github" size="large"></ion-icon>
+            <ion-icon name="logo-github"></ion-icon>
           </a>
         </div>
       </aside>
@@ -155,11 +171,11 @@ function Weather() {
               src={`http://openweathermap.org/img/wn/${dayily?.weather?.[0].icon}@2x.png`}
             />
             <br />
-            {parseInt(dayily.temp.day)}&#176;
+            {Math.round(dayily.temp.day)}&#176;
             <div>{dayily?.weather?.[0]?.description}</div>
-            <div>{parseInt(dayily?.temp?.day)}&#176;</div>
+            <div>{Math.round(dayily?.temp?.day)}&#176;</div>
             <div className="night_degree">
-              {parseInt(dayily?.temp?.night)}&#176;
+              {Math.round(dayily?.temp?.night)}&#176;
             </div>
           </div>
         ))}

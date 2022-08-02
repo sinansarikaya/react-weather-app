@@ -14,8 +14,9 @@
   --blue: #094d92;
 }
 body {
-  font-size: 19px;
   font-family: "Poppins", sans-serif;
+  text-transform: capitalize;
+  font-size: 16px;
 }
 main {
   width: 100%;
@@ -38,7 +39,7 @@ main.Light {
   border: 1px solid #3f3749;
   color: #cbc5d3;
   padding: 2%;
-  overflow: hidden;
+  overflow-y: auto;
 }
 .container.Light {
   background-color: rgb(244, 243, 243);
@@ -52,7 +53,7 @@ aside {
   background-color: #29242f;
   border: 2px solid #3f3749;
   float: left;
-  padding: 3% 3% 0 3%;
+  padding: 2% 3% 0 3%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -77,24 +78,28 @@ aside select {
   color: #645874;
   font-weight: bold;
 }
-aside .aside-conteiner h1 {
-  margin-top: 15px;
+aside .aside-conteiner .city-title {
+  margin-top: 5px;
   color: var(--yellow);
+  font-size: 2rem;
 }
 .aside-info {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 5px;
+}
+.aside-info .info-item {
+  font-size: 1rem;
 }
 .aside-info .info-item.info-date {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 aside .aside-conteiner .currentTemp {
   color: var(--yellow);
-  font-size: 2.5rem;
+  font-size: 2rem;
 }
 .aside-info .info-item.info-footer {
   display: flex;
@@ -102,7 +107,6 @@ aside .aside-conteiner .currentTemp {
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  font-size: 1.2rem;
 }
 .aside-info .info-item.info-footer .info-item.items {
   display: flex;
@@ -122,7 +126,6 @@ aside .aside-conteiner .currentTemp {
   gap: 5px;
   align-items: center;
 }
-
 aside .aside-footer {
   width: 100%;
   height: 10%;
@@ -143,7 +146,6 @@ aside .aside-footer .unity {
 aside .aside-footer a {
   color: #cbc5d3;
 }
-
 section {
   width: 68%;
   height: 100%;
@@ -156,7 +158,7 @@ section {
   text-align: center;
 }
 section .grid-items {
-  height: 300px;
+  height: 250px;
   background-color: #29242f;
   border: 2px solid #3f3749;
 }
@@ -164,20 +166,17 @@ footer {
   text-align: center;
   color: #cbc5d3;
 }
-
 .switch {
   position: relative;
   display: inline-block;
   width: 60px;
   height: 34px;
 }
-
 .switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
-
 .slider {
   position: absolute;
   cursor: pointer;
@@ -189,7 +188,6 @@ footer {
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
-
 .slider:before {
   position: absolute;
   content: "";
@@ -201,7 +199,6 @@ footer {
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
-
 input:checked + .slider {
   background-color: #2196f3;
 }
@@ -223,4 +220,71 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+ion-icon {
+  font-size: 30px;
+}
+@media (max-width: 1300px) {
+  aside .aside-conteiner .city-title {
+    font-size: 20px;
+  }
+  .aside-info .info-item {
+    font-size: 15px;
+  }
+  .aside-info .info-item.info-date {
+    font-size: 16px;
+  }
+  aside .aside-conteiner .currentTemp {
+    font-size: 25px;
+  }
+  ion-icon {
+    font-size: 28px;
+  }
+}
+@media (max-width: 950px) {
+  aside .aside-conteiner .city-title {
+    font-size: 20px;
+  }
+  .aside-info .info-item {
+    font-size: 13px;
+  }
+  .aside-info .info-item.info-date {
+    font-size: 15px;
+  }
+  aside .aside-conteiner .currentTemp {
+    font-size: 25px;
+  }
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 24px;
+  }
+  .slider:before {
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+  }
+  ion-icon {
+    font-size: 28px;
+  }
+  section {
+    grid-template-columns: 48% 48%;
+  }
+}
+@media (max-width: 750px) {
+  aside {
+    float: none;
+    width: 100%;
+  }
+  section {
+    width: 100%;
+  }
+}
+@media (max-width: 500px) {
+  section {
+    width: 100%;
+    grid-template-columns: 98%;
+  }
 }
