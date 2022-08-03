@@ -439,11 +439,46 @@ input:checked + .slider:before {
     font-size: 24px;
   }
   .switch {
-    width: 80px;
+    width: 70px;
     height: 44px;
   }
   .slider:before {
     height: 36px;
     width: 36px;
+  }
+}
+@media (max-width: 440px) {
+  aside .aside .aside-main h1,
+  aside .aside .aside-main .aside-degree {
+    font-size: 25px;
+  }
+  aside .aside .aside-main h2 {
+    font-size: 20px;
+  }
+  aside .aside .aside-main .aside-main-item {
+    font-size: 13px;
+  }
+  aside .aside .aside-main .aside-main-item div .material-symbols-rounded,
+  aside .aside .aside-main .aside-main-item div ion-icon {
+    font-size: 17px;
+  }
+  aside .aside .aside-footer ion-icon,
+  aside .aside .aside-footer a {
+    font-size: 34px;
+  }
+  aside .aside .aside-main .aside-main-item {
+    font-size: 20px;
+  }
+  .switch {
+    width: 65px;
+    height: 37px;
+  }
+  .slider:before {
+    height: 30px;
+    width: 30px;
+  }
+  aside .aside .aside-footer ion-icon,
+  aside .aside .aside-footer a {
+    font-size: 30px;
   }
 }

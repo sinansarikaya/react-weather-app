@@ -50,7 +50,6 @@ function Weather() {
       return day.toLocaleString("en-us", { weekday: "long" });
     }
   }
-
   return (
     <>
       <aside>
@@ -87,7 +86,12 @@ function Weather() {
                 />
               )}
               <span className="aside-degree">
-                {Math.round(weathers?.current?.temp)}&#176;
+                {Math.round(weathers?.current?.temp)}
+                {unit === "metric" ? (
+                  <span>&#176;</span>
+                ) : (
+                  <span> &#8457; </span>
+                )}
               </span>
               <div className="aside-main-item">
                 <div>
@@ -96,14 +100,28 @@ function Weather() {
                     device_thermostat
                   </span>
                 </div>
-                <span>{Math.round(weathers?.current?.feels_like)}&#176;</span>
+                <span>
+                  {Math.round(weathers?.current?.feels_like)}
+                  {unit === "metric" ? (
+                    <span>&#176;</span>
+                  ) : (
+                    <span> &#8457; </span>
+                  )}
+                </span>
               </div>
               <div className="aside-main-item">
                 <div>
                   Day
                   <span className="material-symbols-rounded">light_mode</span>
                 </div>
-                <span>{Math.round(weathers?.daily?.[0]?.temp?.day)}&#176;</span>
+                <span>
+                  {Math.round(weathers?.daily?.[0]?.temp?.day)}
+                  {unit === "metric" ? (
+                    <span>&#176;</span>
+                  ) : (
+                    <span> &#8457; </span>
+                  )}
+                </span>
               </div>
               <div className="aside-main-item">
                 <div>
@@ -111,7 +129,12 @@ function Weather() {
                   <span className="material-symbols-rounded">bedtime</span>
                 </div>
                 <span>
-                  {Math.round(weathers?.daily?.[0]?.temp?.night)}&#176;
+                  {Math.round(weathers?.daily?.[0]?.temp?.night)}
+                  {unit === "metric" ? (
+                    <span>&#176;</span>
+                  ) : (
+                    <span> &#8457; </span>
+                  )}
                 </span>
               </div>
               <div className="aside-main-item">
@@ -174,8 +197,22 @@ function Weather() {
                 <span>{dayily?.weather?.[0]?.description}</span>
               </div>
               <div className="grid-item-footer">
-                <div>Min: {Math.round(dayily?.temp?.min)}&#176;</div>
-                <div>Max: {Math.round(dayily?.temp?.max)}&#176;</div>
+                <div>
+                  Min: {Math.round(dayily?.temp?.min)}
+                  {unit === "metric" ? (
+                    <span>&#176;</span>
+                  ) : (
+                    <span> &#8457; </span>
+                  )}
+                </div>
+                <div>
+                  Max: {Math.round(dayily?.temp?.max)}
+                  {unit === "metric" ? (
+                    <span>&#176;</span>
+                  ) : (
+                    <span> &#8457; </span>
+                  )}
+                </div>
               </div>
             </div>
           ))}
