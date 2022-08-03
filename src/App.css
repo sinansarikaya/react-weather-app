@@ -97,6 +97,10 @@ aside .aside.Light {
   );
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e6e6e6",endColorstr="#e6e6e6",GradientType=1);
 }
+aside .aside.Light .aside-main img {
+  background: #beb6c8;
+}
+
 aside .aside .aside-header {
   align-self: flex-start;
   width: 100%;
