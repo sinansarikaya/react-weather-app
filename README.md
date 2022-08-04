@@ -3,6 +3,8 @@
 ### <a href='https://sinan-react-weather-app.netlify.app/'>Click here for demo </a>
 
 ![](https://github.com/sinansarikaya/react-weather-app/blob/main/desktop-design.gif)
+![](https://github.com/sinansarikaya/react-weather-app/blob/main/mobile-design.gif)
+
 
 # Getting Started with Create React App
 
