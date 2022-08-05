@@ -142,7 +142,7 @@ function Weather() {
                   Humidity
                   <ion-icon name="water"></ion-icon>
                 </div>
-                <span>{weathers?.current?.humidity}</span>
+                <span>{weathers?.current?.humidity}%</span>
               </div>
               <div className="aside-main-item">
                 <div>
