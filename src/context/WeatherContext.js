@@ -28,7 +28,7 @@ export const WeatherProvider = ({ children }) => {
     setUnit,
   };
 
-  const apiKey = "19fb000f0d23db04240d7d2a975c79f2";
+  const apiKey = "4327f11f6458df3e888e99c6b054069c";
 
   //console.log(weathers?.current?.weather?.[0].icon);
 
