@@ -88,7 +88,7 @@ function Weather() {
               <span className="aside-degree">
                 {Math.round(weathers?.current?.temp)}
                 {unit === "metric" ? (
-                  <span>&#176;</span>
+                  <span>&#8451;</span>
                 ) : (
                   <span> &#8457; </span>
                 )}
@@ -103,7 +103,7 @@ function Weather() {
                 <span>
                   {Math.round(weathers?.current?.feels_like)}
                   {unit === "metric" ? (
-                    <span>&#176;</span>
+                    <span>&#8451;</span>
                   ) : (
                     <span> &#8457; </span>
                   )}
@@ -117,7 +117,7 @@ function Weather() {
                 <span>
                   {Math.round(weathers?.daily?.[0]?.temp?.day)}
                   {unit === "metric" ? (
-                    <span>&#176;</span>
+                    <span>&#8451;</span>
                   ) : (
                     <span> &#8457; </span>
                   )}
@@ -131,7 +131,7 @@ function Weather() {
                 <span>
                   {Math.round(weathers?.daily?.[0]?.temp?.night)}
                   {unit === "metric" ? (
-                    <span>&#176;</span>
+                    <span>&#8451;</span>
                   ) : (
                     <span> &#8457; </span>
                   )}
@@ -200,7 +200,7 @@ function Weather() {
                 <div>
                   Min: {Math.round(dayily?.temp?.min)}
                   {unit === "metric" ? (
-                    <span>&#176;</span>
+                    <span>&#8451;</span>
                   ) : (
                     <span> &#8457; </span>
                   )}
@@ -208,7 +208,7 @@ function Weather() {
                 <div>
                   Max: {Math.round(dayily?.temp?.max)}
                   {unit === "metric" ? (
-                    <span>&#176;</span>
+                    <span>&#8451;</span>
                   ) : (
                     <span> &#8457; </span>
                   )}
